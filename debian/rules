@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --builddirectory=build --sourcedirectory=kwayland --parallel --with kde
+
+override_dh_strip:
+	dh_strip --dbg-package=kwayland-dbg
+
+override_dh_install:
+	rm -f debian/tmp/etc/xdg/org_kde_kwayland.categories
+	mkdir -p debian/tmp/usr/share/qt5/
+	mv debian/tmp/usr/mkspecs debian/tmp/usr/share/qt5/
+	dh_install --fail-missing
+
+override_dh_auto_test:
+	# Nothing
