@@ -1,0 +1,3 @@
+[submodule "kwayland"]
+	path = kwayland
+	url = git@github.com:KDE/kwayland.git
