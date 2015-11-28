@@ -5,7 +5,7 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ --builddirectory=build --sourcedirectory=kwayland --parallel --with kde
+	dh $@ --builddirectory=build --sourcedirectory=kwayland --parallel
 
 override_dh_strip:
 	dh_strip --dbg-package=kwayland-dbg
